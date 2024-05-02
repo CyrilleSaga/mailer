@@ -8,11 +8,11 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send({ hello: "World" });
 });
 
-app.post("/sendmail", async (req, res) => {
+app.post("/api/sendmail", async (req, res) => {
   try {
     const { to, from, subject, text } = req.body;
 
