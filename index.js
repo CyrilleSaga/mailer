@@ -16,7 +16,7 @@ app.post("/sendmail", async (req, res) => {
   try {
     const { to, from, subject, text } = req.body;
 
-    const transporter = nodemailer.createTransport({
+    const config = {
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
       secure: process.env.SMTP_SECURE === "true",
@@ -24,7 +24,9 @@ app.post("/sendmail", async (req, res) => {
         user: process.env.SMTP_USERNAME,
         pass: process.env.SMTP_PASSWORD,
       },
-    });
+    };
+
+    const transporter = nodemailer.createTransport(config);
 
     const info = await transporter.sendMail({
       from,
