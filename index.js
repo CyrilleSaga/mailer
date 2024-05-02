@@ -46,6 +46,7 @@ app.post("/sendmail", async (req, res) => {
       to,
       subject,
       text,
+      html: `<p>${text}</p>`,
     });
 
     console.log("Message sent: %s", info.messageId);
