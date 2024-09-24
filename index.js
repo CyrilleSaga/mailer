@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send({ hello: "World" });
+  res.send({ status: "active", message: "Server is running", version: "1.0.0", date: new Date().toISOString() });
 });
 
 app.post("/sendmail", async (req, res) => {
